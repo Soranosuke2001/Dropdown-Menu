@@ -6,6 +6,8 @@ import MenuOptions from "./MenuOptions";
 export default function DropDown() {
   const [showDropDown, setShowDropDown] = useState(false);
 
+  // define a useState to store which options were selected
+
   const dropdownHandler = () => {
     setShowDropDown((prev) => !prev);
   };
@@ -21,7 +23,7 @@ export default function DropDown() {
           <AiOutlineDown />
         </span>
       </div>
-      {showDropDown && <MenuOptions />}
+      <div className='p-1'>{showDropDown && <MenuOptions />}</div>
     </>
   );
 }
