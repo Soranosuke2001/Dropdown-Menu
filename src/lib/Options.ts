@@ -1,16 +1,16 @@
-export const Options = [
-    "Action",
-    "Adventure",
-    "Comedy",
-    "Crime & Mystery",
-    "Fantasy",
-    "Historical",
-    "Horror",
-    "Romance",
-    "Satire",
-    "Science Fiction",
-    "Speculative",
-    "Thriller",
-    "Isekai",
-    "Other"
-]
+export const Options = {
+    Action: false,
+    Adventure: false,
+    Comedy: false,
+    "Crime & Mystery": false,
+    Fantasy: false,
+    Historical: false,
+    Horror: false,
+    Romance: false,
+    Satire: false,
+    "Science Fiction": false,
+    Speculative: false,
+    Thriller: false,
+    Isekai: false,
+    Other: false,
+}
