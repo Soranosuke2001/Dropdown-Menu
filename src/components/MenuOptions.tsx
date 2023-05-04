@@ -21,8 +21,8 @@ export default function MenuOptions(props: MenuOptionsProps) {
                     type="checkbox"
                     value={option}
                     className="hover:cursor-pointer"
-                    onClick={(e) => checkboxHandler(e.currentTarget.value)}
-                    checked
+                    onChange={(e) => checkboxHandler(e.currentTarget.value)}
+                    defaultChecked={true}
                   />
                 ) : (
                   <input
@@ -30,6 +30,7 @@ export default function MenuOptions(props: MenuOptionsProps) {
                     value={option}
                     className="hover:cursor-pointer"
                     onClick={(e) => checkboxHandler(e.currentTarget.value)}
+                    defaultChecked={false}
                   />
                 )}
               </span>

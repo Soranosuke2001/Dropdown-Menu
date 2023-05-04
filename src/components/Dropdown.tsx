@@ -2,9 +2,10 @@ import React, { useState, useEffect } from "react";
 
 import { AiOutlineDown } from "react-icons/ai";
 import MenuOptions from "./MenuOptions";
-import { Options } from "../lib/Options";
+import { menuOptions } from "../lib/Options";
 
 export default function DropDown() {
+  let Options = menuOptions
   const [showDropDown, setShowDropDown] = useState(false);
 
   // define a useState to store which options were selected
@@ -31,7 +32,7 @@ export default function DropDown() {
   };
   
   // Reversing the current state of the checkbox for each genre selected
-  const checkboxHandler = (genre) => {
+  const checkboxHandler = (genre: string) => {
     const currentState = Options[`${genre}`]
     const newState = !currentState
     

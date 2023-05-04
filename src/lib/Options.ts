@@ -1,4 +1,4 @@
-export const Options = {
+export const menuOptions = {
     Action: false,
     Adventure: false,
     Comedy: false,
