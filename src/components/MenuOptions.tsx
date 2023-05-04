@@ -1,12 +1,13 @@
 import React from "react";
 
 interface MenuOptionsProps {
-  optionList: string[];
+  optionChecked: any;
   checkboxHandler: (genre: string) => void;
 }
 
 export default function MenuOptions(props: MenuOptionsProps) {
-  const { optionList, checkboxHandler } = props;
+  const { optionChecked, checkboxHandler } = props;
+  const optionList = Object.keys(optionChecked)
   return (
     <>
       <div className="border border-black rounded-lg p-3">

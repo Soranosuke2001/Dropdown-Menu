@@ -9,28 +9,37 @@ export default function DropDown() {
 
   // define a useState to store which options were selected
   const [optionChecked, setOptionChecked] = useState(Options);
-  const optionList = Object.keys(Options)
-
+  
+  // This useEffect should only run once
+  // Sets the local storage value
   useEffect(() => {
-    
+    // Check if the storage already has the selected options
+    const data = localStorage.getItem("selectedOptions")
 
-    localStorage.setItem('selectedOptions', JSON.stringify(Options))
+    // If there is already stored data, then set it as the initial state
+    if (data) {
+      const localOptions = JSON.parse(data)
+      setOptionChecked(localOptions)
+    } else {
+      localStorage.setItem('selectedOptions', JSON.stringify(Options))
+    }
   }, [Options])
-
+  
+  // Determines if the dropdown menu is shown or not
   const dropdownHandler = () => {
     setShowDropDown((prev) => !prev);
   };
-
+  
+  // Reversing the current state of the checkbox for each genre selected
   const checkboxHandler = (genre) => {
     const currentState = Options[`${genre}`]
     const newState = !currentState
-
-    Options[`${genre}`] = newState
-
-    setOptionChecked(Options)
     
-    console.log(optionChecked)
-  }
+    Options[`${genre}`] = newState
+    
+    setOptionChecked(Options)
+    localStorage.setItem('selectedOptions', JSON.stringify(optionChecked))
+    }
 
   return (
     <>
@@ -43,7 +52,7 @@ export default function DropDown() {
           <AiOutlineDown />
         </span>
       </div>
-      <div className="p-1">{showDropDown && <MenuOptions optionList={optionList} checkboxHandler={checkboxHandler} />}</div>
+      <div className="p-1">{showDropDown && <MenuOptions optionChecked={optionChecked} checkboxHandler={checkboxHandler} />}</div>
     </>
   );
 }
